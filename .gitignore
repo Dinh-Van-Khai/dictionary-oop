@@ -1,0 +1,37 @@
+# Compiled class file
+target/
+out/
+
+# Logs
+log/
+
+# IntelliJ
+.idea/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Mac OS
+.DS_Store
+
+# Thư mục hệ thống
+bin/
+lib/
+
+# Maven
+log/
+target/
+release.properties
+pom.xml.releaseBackup
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# VSCode
+.vscode/
+.history/
+*.code-workspace
