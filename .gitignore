@@ -2,6 +2,8 @@
 target/
 out/
 
+test/
+
 # Logs
 log/
 
