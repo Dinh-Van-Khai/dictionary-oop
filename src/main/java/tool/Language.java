@@ -69,15 +69,23 @@ public enum Language {
     private final String name;
     private final String code;
 
-    Language(String name, String code) {
+    private Language(String name, String code) {
         this.name = name;
         this.code = code;
     }
 
+    /**
+     * Get the name of the language.
+     * @return name of the language.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get the code of the language.
+     * @return code of the language.
+     */
     public String getCode() {
         return code;
     }
