@@ -160,8 +160,8 @@ public class MatchingWord {
         }
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         MatchingWord newgame = new MatchingWord();
         newgame.start();
-    }
+    }*/
 }

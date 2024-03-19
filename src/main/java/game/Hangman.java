@@ -139,10 +139,10 @@ public class Hangman {
         }
 
     }
-    /*
-     * public static void main(String[] args) {
-     * Hangman test = new Hangman();
-     * test.start();
-     * }
-     */
+
+    // public static void main(String[] args) {
+    // Hangman test = new Hangman();
+    // test.start();
+    // }
+
 }
