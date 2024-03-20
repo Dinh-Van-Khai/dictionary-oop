@@ -22,27 +22,36 @@ public class TranslateAPI {
      * @throws IOException
      * @throws URISyntaxException
      */
-    public static String translate(String text, Language langFrom, Language langInto) throws IOException, URISyntaxException {
-        String langFromCode = langFrom.getCode();
-        String langIntoCode = langInto.getCode();
-        String baseURL = "https://script.google.com/macros/s/AKfycbz9L5KTSf-KnTO_UhQxLbrH0LUeQwvGHssfxRkxej_WztIqQZUCXAWNqFSAxYmnDWxS/exec";
-        String queryString 
-            = "?q=" + URLEncoder.encode(text,"UTF-8") 
-            + "&target=" + langIntoCode 
-            + "&source=" + langFromCode;
+    public static String translate(String text, Language langFrom, Language langInto) {
+        try {
+            String langFromCode = langFrom.getCode();
+            String langIntoCode = langInto.getCode();
+            String baseURL = "https://script.google.com/macros/s/AKfycbz9L5KTSf-KnTO_UhQxLbrH0LUeQwvGHssfxRkxej_WztIqQZUCXAWNqFSAxYmnDWxS/exec";
+            String queryString 
+                = "?q=" + URLEncoder.encode(text,"UTF-8") 
+                + "&target=" + langIntoCode 
+                + "&source=" + langFromCode;
 
-        URI uri = new URI(baseURL+queryString);
-        URL url = uri.toURL();
-        StringBuilder response = new StringBuilder();
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestProperty("User-Agent", "Mozilla/5.0");
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        
-        String inputLine;
-        while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine);
+            URI uri = new URI(baseURL+queryString);
+            URL url = uri.toURL();
+            StringBuilder response = new StringBuilder();
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("User-Agent", "Mozilla/5.0");
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+            return response.toString();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        in.close();
-        return response.toString();
+        return null;
     }
 }
