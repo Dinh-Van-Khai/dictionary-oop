@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Hangman {
+public class Hangman implements Game {
     private int health;
     private String path;
     private ArrayList<String> listDictionary = new ArrayList<>();
@@ -131,7 +131,6 @@ public class Hangman {
                 decreaseHealth();
             }
         }
-        input.close();
         if (getHealth() == 0) {
             System.out.println("You lose. Answer: " + word);
         } else {
