@@ -192,7 +192,7 @@ public class DictionaryManagement {
         String tmp = word.substring(0, len_key);
         if (tmp.compareTo(key) == 0) {
           check = true;
-          System.out.println(word + "\n");
+          System.out.println(word);
         }
       }
     }
@@ -243,7 +243,7 @@ public class DictionaryManagement {
    * @param newWord (eng word, vn word)
    */
   public void dictionaryAddWord(Word newWord) {
-    if (dictionary.containsKey(newWord.getWord_target())) {
+    if (!dictionary.containsKey(newWord.getWord_target())) {
       dictionary.put(newWord.getWord_target(), newWord);
       System.out.println("Add word successfully !!!");
     } else {

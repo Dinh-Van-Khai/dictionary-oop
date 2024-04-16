@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class MatchingWord {
+public class MatchingWord implements Game {
     private int point;
     private int health;
     private String path;
@@ -135,28 +135,24 @@ public class MatchingWord {
         charactorKey = wordStart.charAt(wordStart.length() - 1);
 
         Scanner input = new Scanner(System.in);
-        try {
-            while (true) {
-                System.out.printf("\n\t\t");
-                String word = input.nextLine();
-                word = word.toLowerCase();
-                if (checkAnswer(word)) {
-                    increasePoint();
-                    answerList.add(word);
-                    charactorKey = word.charAt(word.length() - 1);
-                } else {
-                    decreaseHealth();
-                    System.out.printf("ERROR");
-                }
-                String wordContinue = randomWord();
-                System.out.printf("\n%s", wordContinue);
-                answerList.add(wordContinue);
-                if (point == 10 || health == 0) {
-                    break;
-                }
+        while (true) {
+            System.out.printf("\n\t\t");
+            String word = input.nextLine();
+            word = word.toLowerCase();
+            if (checkAnswer(word)) {
+                increasePoint();
+                answerList.add(word);
+                charactorKey = word.charAt(word.length() - 1);
+            } else {
+                decreaseHealth();
+                System.out.printf("ERROR");
             }
-        } finally {
-            input.close();
+            String wordContinue = randomWord();
+            System.out.printf("\n%s", wordContinue);
+            answerList.add(wordContinue);
+            if (point == 10 || health == 0) {
+                break;
+            }
         }
     }
 
