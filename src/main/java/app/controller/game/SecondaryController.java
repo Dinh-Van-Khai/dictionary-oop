@@ -1,4 +1,4 @@
-package app;
+package app.controller.game;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
