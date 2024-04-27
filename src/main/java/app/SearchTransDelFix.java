@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import dictionary.Dictionary;
@@ -51,14 +52,16 @@ public class SearchTransDelFix implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         //handle the state of search bar
-        searchTerm.setOnKeyTyped(keyEvent -> {
-            if (searchTerm.getText().isEmpty()) {
-                cancelBtn.setVisible(false);
-                setListDefault();
-            } else {
-                cancelBtn.setVisible(true);
-                // function that processes keyboard input strings
-                handleOnKeyTyped();
+        searchTerm.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                if (searchTerm.getText().isEmpty()) {
+                    cancelBtn.setVisible(false);
+                    setListDefault();
+                } else {
+                    cancelBtn.setVisible(true);
+                    // function that processes keyboard input strings
+                    handleOnKeyTyped();
+                }
             }
         });
 
