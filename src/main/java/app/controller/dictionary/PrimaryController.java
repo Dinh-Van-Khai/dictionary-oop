@@ -1,4 +1,4 @@
-package app;
+package app.controller.dictionary;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
