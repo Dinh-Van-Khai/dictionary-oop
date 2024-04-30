@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.game.MenuGameController">
+   <children>
+      <ImageView fitHeight="217.0" fitWidth="247.0" layoutX="151.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>lightOrange.css
+            <Image url="@../img/game/multiplechoice.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="197.0" fitWidth="268.0" layoutX="506.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/game/hangmanfull.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="217.0" fitWidth="232.0" layoutX="911.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/game/matchingword.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="556.0" layoutY="476.0" mnemonicParsing="false" onAction="#switchToHangManGameScene" prefHeight="55.0" prefWidth="150.0" text="Hang Man" />
+      <Button layoutX="944.0" layoutY="476.0" mnemonicParsing="false" onAction="#switchToMatchingWordScene" prefHeight="55.0" prefWidth="150.0" text="Matching Word" />
+      <Button layoutX="217.0" layoutY="476.0" mnemonicParsing="false" onAction="#switchToMultipleChoiceScene" prefHeight="55.0" prefWidth="150.0" text="Multiple Choice" />
+      <Button fx:id="closeButton" layoutX="1251.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="28.0" prefWidth="30.0" text="X" />
+   </children>
+</AnchorPane>

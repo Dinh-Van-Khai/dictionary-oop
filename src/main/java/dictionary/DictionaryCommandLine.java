@@ -1,7 +1,8 @@
 package dictionary;
 
 import java.util.Scanner;
-import game.*;
+
+import game.gameCommandLine.GameManagement;
 
 public class DictionaryCommandLine {
 
