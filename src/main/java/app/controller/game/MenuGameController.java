@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MenuGameController extends Controller  {
-    String VIEWS_PATH = "/org/example/testhangman/views/";
+    String VIEWS_PATH = "/view/";
 
     @FXML
     private Button closeButton;
