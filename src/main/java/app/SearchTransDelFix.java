@@ -52,16 +52,20 @@ public class SearchTransDelFix implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         //handle the state of search bar
-        searchTerm.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode() == KeyCode.ENTER) {
-                if (searchTerm.getText().isEmpty()) {
-                    cancelBtn.setVisible(false);
-                    setListDefault();
-                } else {
-                    cancelBtn.setVisible(true);
-                    // function that processes keyboard input strings
-                    handleOnKeyTyped();
-                }
+        searchTerm.setOnKeyTyped(keyEvent -> {
+
+            if (searchTerm.getText().isEmpty()) {
+                cancelBtn.setVisible(false);
+                setListDefault();
+            } else {
+                cancelBtn.setVisible(true);
+                // function that processes keyboard input strings
+                handleOnKeyTyped();
+                searchTerm.setOnKeyPressed(keyEvent1 -> {
+                    if (keyEvent1.getCode() == KeyCode.ENTER) {
+                        handleEnterSearch(searchTerm);
+                    }
+                });
             }
         });
 
@@ -105,6 +109,20 @@ public class SearchTransDelFix implements Initializable {
         String selectedWord = listResults.getSelectionModel().getSelectedItem();
 
         if (selectedWord != null) {
+            englishWord.setText(selectedWord);
+            explanation.setText(dictionary.get(selectedWord).getWord_explain());
+            headerOfExplanation.setVisible(true);
+            explanation.setVisible(true);
+            explanation.setEditable(false);
+
+            saveBtn.setVisible(false);
+        }
+    }
+
+    private void handleEnterSearch(TextField searchTerm) {
+        String selectedWord = searchTerm.getText();
+
+        if (!selectedWord.isEmpty()) {
             englishWord.setText(selectedWord);
             explanation.setText(dictionary.get(selectedWord).getWord_explain());
             headerOfExplanation.setVisible(true);
