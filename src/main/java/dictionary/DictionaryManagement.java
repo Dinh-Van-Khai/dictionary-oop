@@ -269,16 +269,17 @@ public class DictionaryManagement {
     }
 
 
-    //////////////////////////////////////////////////////////////
-    // Now I write a handler function for the javafx interface ///
-    //////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+    /// Now I write a handler function for the javafx interface ///
+    ///////////////////////////////////////////////////////////////
 
 
-  /**
-   *
-   * @param search_term
-   * @return
-   */
+    /**
+     * The method returns results for each letter pressed.
+     *
+     * @param search_term entry to look up results
+     * @return results list
+     */
     public ObservableList<String> searchBySearchTerm(String search_term) {
         ObservableList<String> results = FXCollections.observableArrayList();
 
@@ -291,14 +292,33 @@ public class DictionaryManagement {
             if (len_word < len_key) {
                 continue;
             } else {
-              String tmp = word.substring(0, len_key);
-              if (tmp.compareTo(search_term) == 0) {
-                results.add(word);
-              }
+                String tmp = word.substring(0, len_key);
+                if (tmp.compareTo(search_term) == 0) {
+                    results.add(word);
+                }
             }
         }
         return results;
     }
 
+    /**
+     * Schedules a piece of code (runnable) to be executed after a specified delay (in milliseconds).
+     * This method creates a new thread and uses it to run the provided Runnable after the specified delay.
+     * If an exception occurs during the delay or while running the Runnable, it will be printed to the standard error stream.
+     *
+     * @param runnable The code to be executed after the delay. This argument must implement the Runnable interface.
+     * @param delay    The delay in milliseconds before executing the code. This value must be non-negative.
+     * @throws IllegalArgumentException if the delay is negative.
+     */
+    public void setTimeout(Runnable runnable, int delay) {
+        new Thread(() -> {
+            try {
+                Thread.sleep(delay);
+                runnable.run();
+            } catch (Exception e) {
+                System.err.println(e);
+            }
+        }).start();
+    }
 
 }

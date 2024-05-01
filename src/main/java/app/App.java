@@ -18,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SearchTransDelFix.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddWord.fxml")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
