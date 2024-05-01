@@ -28,14 +28,7 @@ public class Word {
    * @param word_explain vn word
    */
   public Word(String word_target, String word_explain) {
-    // use to check right word ( no excepted character)
-    for (int i = 0; i < word_target.length(); ++i) {
-      if (!validCharacter(word_target.charAt(i))) {
-        throw new IllegalArgumentException("Your type is wrong ( has a not trong cho character");
-      }
-      word_target = word_target.toLowerCase();
-    }
-
+    word_target = word_target.toLowerCase();
     this.word_explain = word_explain;
     this.word_target = word_target;
   }

@@ -1,0 +1,43 @@
+.add-button {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 10, 0, 0, 0);
+    -fx-text-fill: #edf1ec;
+    -fx-background-radius: 5px;
+    -fx-font-weight: 700;
+    -fx-font-size: 13px;
+    -fx-background-color: linear-gradient(to bottom left, #2a8b00, #51b045);
+    -fx-pref-height: 30px;
+    -fx-pref-width: 100px;
+}
+
+.title {
+    -fx-background-color: #138b00;
+    -fx-effect: dropshadow(three-pass-box, #8ce67a, 10, 0, 0, 0);
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.english-word-input,
+.meaning-input {
+    -fx-text-fill: #1d3b07;
+    -fx-border-color: #7cbd6f;
+    -fx-font-size: 14px;
+    -fx-border-width: 1.5;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.success-alert {
+    -fx-font-size: 14px;
+    -fx-text-fill: #009432;
+    -fx-background-color: #ccf7ca;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.fail-alert {
+    -fx-font-size: 14px;
+    -fx-text-fill: #940000;
+    -fx-background-color: rgb(254, 96, 96);
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
