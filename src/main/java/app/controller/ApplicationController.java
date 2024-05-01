@@ -18,6 +18,7 @@ import java.util.ResourceBundle;
 public class ApplicationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        showComponent("/view/translate.fxml");
         dictionaryBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

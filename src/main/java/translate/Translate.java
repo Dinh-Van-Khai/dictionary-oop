@@ -48,19 +48,19 @@ public class Translate {
     }
 
     /**
-     * Translates the text into other languages.
+     * Translates the text to other languages.
      * 
-     * @return the text you want to translate into
+     * @return the text you want to translate to
      * @throws IOException
      * @throws URISyntaxException
      */
     public String getTextTo() throws IOException, URISyntaxException{
         String langFromCode = langFrom.getCode();
-        String langIntoCode = langTo.getCode();
+        String langToCode = langTo.getCode();
         String baseURL = "https://script.google.com/macros/s/AKfycbz9L5KTSf-KnTO_UhQxLbrH0LUeQwvGHssfxRkxej_WztIqQZUCXAWNqFSAxYmnDWxS/exec";
         String queryString 
             = "?q=" + URLEncoder.encode(textFrom,"UTF-8") 
-            + "&target=" + langIntoCode 
+            + "&target=" + langToCode 
             + "&source=" + langFromCode;
 
         URI uri = new URI(baseURL+queryString);

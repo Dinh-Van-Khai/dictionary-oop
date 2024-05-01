@@ -19,7 +19,7 @@ public class App extends Application {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/application.fxml")));
             Scene scene = new Scene(root);
-            stage.setTitle("Dictionary");
+            stage.setTitle("Dictionary Application");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();

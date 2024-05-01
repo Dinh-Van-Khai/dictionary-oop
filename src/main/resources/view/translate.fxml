@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="427.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.translate.TranslateController">
+   <children>
+      <Label prefHeight="61.0" prefWidth="593.0" text="Translate">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/translate/translate-icon.png" />
+               </image></ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Pane layoutY="55.0" prefHeight="326.0" prefWidth="594.0">
+         <children>
+            <Pane layoutX="3.0" prefHeight="326.0" prefWidth="294.0">
+               <children>
+                  <ComboBox fx:id="langFrom" prefHeight="44.0" prefWidth="294.0" />
+                  <TextArea fx:id="textFrom" layoutY="45.0" prefHeight="231.0" prefWidth="294.0" />
+                  <Button fx:id="soundTextFrom" layoutY="275.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="44.0">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/translate/speaker.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="297.0" prefHeight="326.0" prefWidth="294.0">
+               <children>
+                  <ComboBox fx:id="langTo" prefHeight="44.0" prefWidth="294.0" />
+                  <TextArea fx:id="textTo" layoutY="45.0" prefHeight="231.0" prefWidth="294.0" />
+                  <Button fx:id="soundTextTo" layoutY="275.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="59.0">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/translate/speaker.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+         </children></Pane>
+      <Button fx:id="translateBtn" layoutX="261.0" layoutY="381.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="70.0" text="Translate" />
+   </children>
+</AnchorPane>
