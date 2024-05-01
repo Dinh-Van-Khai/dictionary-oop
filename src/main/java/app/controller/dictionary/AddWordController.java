@@ -8,7 +8,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AddWord extends SearchTransDelFix {
+public class AddWordController extends DictionaryController {
     @FXML
     private TextField wordTargetInput;
     @FXML
