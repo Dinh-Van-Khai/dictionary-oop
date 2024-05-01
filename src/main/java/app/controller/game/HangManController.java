@@ -1,25 +1,32 @@
 package app.controller.game;
+import game.gamejavaFX.HangMan;
+import game.gamejavaFX.HangManWord ;
 
+import javafx.animation.PauseTransition;
+import javafx.scene.control.Button;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import game.gamejavaFX.HangMan;
-import game.gamejavaFX.HangManWord ;
 
 import java.io.IOException;
 import java.net.URL;
 
 public class HangManController extends Controller {
     String VIEWS_PATH ="/view/";
+
+    PauseTransition delay = new PauseTransition(Duration.seconds(2));
 
     @FXML
     public Label guessWord;
@@ -37,6 +44,8 @@ public class HangManController extends Controller {
     private ImageView healthImage;
     @FXML
     private ImageView Man;
+    @FXML
+    private Button replay;
 
     private HangMan hangman = new HangMan();
     HangManWord word = new HangManWord(hangman.randWord());
@@ -74,9 +83,22 @@ public class HangManController extends Controller {
 
             if (hangman.getHealth() <= 0) {
                 updateImageHealth();
-                gameOver.setText("GAME OVER!");
                 correctWord.setText("Correct word: " + word.word);
-                guessChar.clear();
+
+                delay.setOnFinished(event -> {
+                    correctWord.setVisible(false);
+                    gameOver.setText("Game Over");
+                    gameOver.setVisible(true);
+                    replay.setVisible(true);
+
+                    guessWord.setVisible(false);
+                    healthImage.setVisible(false);
+                    Man.setVisible(false);
+                    guessChar.setVisible(false);
+                    resultBox.setVisible(false);
+                    guessChar.clear();
+                });
+                delay.play();
             } else {
                 updateImageHealth();
             }
@@ -86,7 +108,7 @@ public class HangManController extends Controller {
         // đoán đúng
         else {
             resultBox.setText("Correct!");
-            scoreBox.setText(hangman.getScore() + "");
+            scoreBox.setText("Score: "+ hangman.getScore());
             guessWord.setText(word.randGuessWord());
             hangman.increaseHighscore();
             guessChar.clear();
@@ -103,23 +125,23 @@ public class HangManController extends Controller {
         String imgMan ="";
         int health = hangman.getHealth();
         if (health == 5){
-            imageheartName ="/src/main/resources/img/game/5heart.png";
-            imgMan = "/src/main/resources/img/game/hangmanfull.png";
+            imageheartName ="src/main/resources/img/game/5heart.png";
+            imgMan = "src/main/resources/img/game/hangmanfull.png";
         }else if (health == 4) {
-            imageheartName ="/src/main/resources/img/game/4heart.png";
-            imgMan = "/src/main/resources/img/game/hangman1leg.png";
+            imageheartName ="src/main/resources/img/game/4heart.png";
+            imgMan = "src/main/resources/img/game/hangman1leg.png";
         } else if (health == 3) {
-            imageheartName = "/src/main/resources/img/game/3heart.png";
-            imgMan = "/src/main/resources/img/game/hangman0leg.png";
+            imageheartName = "src/main/resources/img/game/3heart.png";
+            imgMan = "src/main/resources/img/game/hangman0leg.png";
         } else if (health == 2) {
-            imageheartName = "/src/main/resources/img/game/2heart.png";
-            imgMan = "/src/main/resources/img/game/hangman0leg1hand.png";
+            imageheartName = "src/main/resources/img/game/2heart.png";
+            imgMan = "src/main/resources/img/game/hangman0leg1hand.png";
         } else if (health == 1) {
-            imageheartName = "/src/main/resources/img/game/1heart.png";
-            imgMan = "/src/main/resources/img/game/hangman0leg0hand.png";
+            imageheartName = "src/main/resources/img/game/1heart.png";
+            imgMan = "src/main/resources/img/game/hangman0leg0hand.png";
         }
         else if(health == 0){
-            imgMan ="/src/main/resources/img/game/hangman0body.png";
+            imgMan ="src/main/resources/img/game/hangman0body.png";
         }
         URL imageUrl = getClass().getResource(imageheartName);
         if (imageUrl != null) {
@@ -169,16 +191,15 @@ public class HangManController extends Controller {
     }
 
     @FXML
-    public void end(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(VIEWS_PATH + "QuitHangMan.fxml"));
+    public void replay(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(VIEWS_PATH + "HangMan.fxml"));
         root = loader.load();
 
-        QuitHangManController end = loader.getController();
-        end.displayScore(hangman.getScore());
+        HangManController hangManController = loader.getController();
+        hangManController.initializeQuestion(event);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-
         stage.setScene(scene);
         stage.show();
     }

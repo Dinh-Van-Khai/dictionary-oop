@@ -11,23 +11,12 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.util.Objects;
 
-/**
- * Class chạy bằng giao diện.
- */
 public class GameApp extends Application {
     public Stage stage;
 
     public Scene scene;
     private Parent root;
 
-    /**
-     * The start function to run application with FXML files
-     *
-     * @param stage the primary stage for this application, onto which
-     *              the application scene can be set.
-     *              Applications may create other stages, if needed, but they will not be
-     *              primary stages.
-     */
     @Override
     public void start(Stage stage) throws IOException {
         try {
@@ -35,21 +24,7 @@ public class GameApp extends Application {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(viewsPath + "menuGame.fxml")));
 
             Scene scene = new Scene(root);
-//            stage.setTitle(Utilities.APP_TITLE);
-//            stage.setWidth(Utilities.APP_WIDTH);
-//            stage.setHeight(Utilities.APP_HEIGHT);
-            stage.setResizable(false);
-            scene.setFill(Color.TRANSPARENT);
-            stage.initStyle(StageStyle.TRANSPARENT);
-
-            String css = this.getClass().getResource(viewsPath + "lightOrange.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
             stage.setScene(scene);
-
-//            Image icon = new Image("file:" + Utilities.PATH_TO_ICON);
-//            stage.getIcons().add(icon);
-
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
