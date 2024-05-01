@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="mcAnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.game.HangManController">
+    <children>
+        <ImageView fx:id="imageView" fitHeight="720.0" fitWidth="1278.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" styleClass="rounded-search-box" />
+        <GridPane id="mcGridPane1" prefHeight="54.0" prefWidth="1338.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.199951171875" minWidth="10.0" prefWidth="218.39996337890625" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="293.60003662109375" minWidth="10.0" prefWidth="293.60003662109375" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="386.4000244140625" minWidth="10.0" prefWidth="329.5999755859375" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.199951171875" minWidth="10.0" prefWidth="198.4000244140625" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label id="mcText" fx:id="scoreBox" text="Score: 0" GridPane.columnIndex="1">
+                    <padding>
+                        <Insets left="70.0" />
+                    </padding>
+                    <font>
+                        <Font name="Comic Sans MS" size="30.0" />
+                    </font>
+                </Label>
+                <Button id="functionButton" mnemonicParsing="false" onAction="#initializeQuestion" prefHeight="54.0" prefWidth="206.0" text="Next Question" visible="false" GridPane.columnIndex="3">
+                    <GridPane.margin>
+                        <Insets left="148.0" />
+                    </GridPane.margin>
+                    <font>
+                        <Font size="25.0" />
+                    </font>
+                </Button>
+                <Button id="functionButton" mnemonicParsing="false" onAction="#switchBackToGameScene" prefHeight="63.0" prefWidth="113.0" text="Back">
+                    <font>
+                        <Font name="Comic Sans MS" size="30.0" />
+                    </font>
+                </Button>
+            </children>
+        </GridPane>
+        <ImageView fx:id="healthImage" fitHeight="182.0" fitWidth="396.0" layoutX="928.0" preserveRatio="true" GridPane.columnIndex="2">
+            <image>
+                <Image url="@../img/game/5heart.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="guessWord" alignment="CENTER" layoutX="761.0" layoutY="378.0" prefHeight="80.0" prefWidth="377.0" text="Guess Word">
+            <!--            style="-fx-background-color: transparent; -fx-padding: 0; -fx-alignment: center; -fx-font-size: 60px;">-->
+            <font>
+                <Font name="Comic Sans MS" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="gameOver" layoutX="437.0" layoutY="198.0" prefHeight="126.0" prefWidth="466.0" text="Game Over" visible="false">
+            <!--               style="-fx-background-color: transparent; -fx-padding: 0; -fx-alignment: center; -fx-font-size: 30px; -fx-wrap-text: true; -fx-text-fill: red;">-->
+            <font>
+                <Font name="Comic Sans MS" size="90.0" />
+            </font>
+        </Label>
+        <Label fx:id="correctWord" layoutX="387.0" layoutY="164.0" prefHeight="45.0" prefWidth="563.0">
+            <!--               style="-fx-background-color: transparent; -fx-padding: 0; -fx-alignment: center; -fx-font-size: 30px; -fx-wrap-text: true; -fx-text-fill: green;">-->
+            <font>
+                <Font name="Comic Sans MS" size="30.0" />
+            </font>
+        </Label>
+        <!--        style="-fx-alignment: center; -fx-font-size: 26px; -fx-wrap-text: true;"/>-->
+        <TextField fx:id="guessChar" layoutX="740.0" layoutY="564.0" prefHeight="46.0" prefWidth="410.0" promptText="Enter the letter you guessed..." styleClass="rounded-search-box" />
+        <ImageView fx:id="Man" fitHeight="346.0" fitWidth="442.0" layoutX="97.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/game/hangmanfull.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="replay" layoutX="591.0" layoutY="378.0" mnemonicParsing="false" onAction="#replay" prefHeight="80.0" prefWidth="154.0" text="Replay" visible="false">
+            <font>
+                <Font name="Comic Sans MS" size="35.0" />
+            </font>
+        </Button>
+        <Label id="mcText" fx:id="resultBox" alignment="CENTER" contentDisplay="CENTER" layoutX="801.0" layoutY="253.0" prefHeight="36.0" prefWidth="298.0" text="Correct?">
+            <font>
+                <Font name="Comic Sans MS" size="30.0" />
+            </font>
+        </Label>
+        <!--        style="-fx-font-size: 20px;"/>-->
+    </children>
+</AnchorPane>
