@@ -1,4 +1,4 @@
-package game;
+package game.gameCommandLine;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
-public class MultipleChoice {
+public class MultipleChoice implements Game {
     // danh sách các câu hỏi
     private ArrayList<QuestionMultipleChoice> listQuestion = new ArrayList<>();
     private int point;
@@ -98,7 +98,7 @@ public class MultipleChoice {
         return listAnswer;
     }
 
-    public void Start() {
+    public void start() {
         createListQuestion();
         Scanner input = new Scanner(System.in);
         int index = 1;
@@ -121,12 +121,11 @@ public class MultipleChoice {
                 decreaseHealth();
             }
         }
-        input.close();
 
     }
 
-    public static void main(String[] args) {
-        MultipleChoice test = new MultipleChoice();
-        test.Start();
-    }
+    // public static void main(String[] args) {
+    //     MultipleChoice test = new MultipleChoice();
+    //     test.start();
+    // }
 }

@@ -1,4 +1,4 @@
-package app;
+package app.controller.dictionary;
 
 import dictionary.Word;
 import javafx.collections.FXCollections;

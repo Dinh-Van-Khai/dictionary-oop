@@ -1,36 +1,32 @@
 package app;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.Objects;
 
-/**
- * JavaFX App
- */
-public class App extends Application {
+public class GameApp extends Application {
+    public Stage stage;
+
+    public Scene scene;
+    private Parent root;
+
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/AddWord.fxml")));
+            String viewsPath = "/view/";
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(viewsPath + "menuGame.fxml")));
+
             Scene scene = new Scene(root);
-            stage.setTitle("Dictionary Application");
             stage.setScene(scene);
-            stage.setResizable(false);
             stage.show();
-
-            stage.setOnCloseRequest(e -> {
-                Platform.exit();
-                System.exit(0);
-            });
-
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }
