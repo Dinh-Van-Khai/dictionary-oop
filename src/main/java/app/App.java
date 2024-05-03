@@ -17,7 +17,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/AddWord.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/SearchTransDelFix.fxml")));
             Scene scene = new Scene(root);
             stage.setTitle("Dictionary Application");
             stage.setScene(scene);

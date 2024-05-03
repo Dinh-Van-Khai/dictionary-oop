@@ -23,7 +23,7 @@ public class SearchTransDelFix implements Initializable {
     protected static DictionaryManagement dictionaryManagement = new DictionaryManagement();
 
     static {
-        dictionaryManagement.insertFromFile("src/main/resources/data/WordList.txt");
+        dictionaryManagement.insertFromFile("src/main/resources/data/dictionary/WordList.txt");
         dictionary = dictionaryManagement.getDictionary();
     }
 
@@ -59,6 +59,7 @@ public class SearchTransDelFix implements Initializable {
                 setListDefault();
             } else {
                 cancelBtn.setVisible(true);
+
                 // function that processes keyboard input strings
                 handleOnKeyTyped();
                 searchTerm.setOnKeyPressed(keyEvent1 -> {
