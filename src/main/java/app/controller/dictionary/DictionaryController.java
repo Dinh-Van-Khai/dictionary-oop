@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import tool.Language;
+import tool.Sound;
 import dictionary.Dictionary;
 import dictionary.DictionaryManagement;
 
@@ -16,7 +18,7 @@ import dictionary.DictionaryManagement;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SearchTransDelFix implements Initializable {
+public class DictionaryController implements Initializable {
 
     private ObservableList<String> list = FXCollections.observableArrayList();
     protected static Dictionary dictionary;
@@ -35,9 +37,9 @@ public class SearchTransDelFix implements Initializable {
     @FXML
     private Button cancelBtn;
     @FXML
-    private Label englishWord;
+    private Button addWordBtn;
     @FXML
-    private Label headerList;
+    private Label englishWord;
     @FXML
     private Label notAvailableAlert;
     @FXML
@@ -83,7 +85,7 @@ public class SearchTransDelFix implements Initializable {
         explanation.setDisable(false);
         saveBtn.setVisible(false);
         cancelBtn.setVisible(false);
-
+        notAvailableAlert.setVisible(false);
     }
 
     //
@@ -95,11 +97,7 @@ public class SearchTransDelFix implements Initializable {
     private void handleOnKeyTyped() {
         list = dictionaryManagement.searchBySearchTerm(searchTerm.getText().trim());
 
-        if (list.isEmpty()) {
-            notAvailableAlert.setVisible(true);
-        } else {
-            notAvailableAlert.setVisible(false);
-            headerList.setText("Results");
+        if (!list.isEmpty()) {
             listResults.setItems(list);
         }
     }
@@ -115,8 +113,8 @@ public class SearchTransDelFix implements Initializable {
             headerOfExplanation.setVisible(true);
             explanation.setVisible(true);
             explanation.setEditable(false);
-
             saveBtn.setVisible(false);
+            notAvailableAlert.setVisible(false);
         }
     }
 
@@ -124,13 +122,21 @@ public class SearchTransDelFix implements Initializable {
         String selectedWord = searchTerm.getText();
 
         if (!selectedWord.isEmpty()) {
-            englishWord.setText(selectedWord);
-            explanation.setText(dictionary.get(selectedWord).getWord_explain());
-            headerOfExplanation.setVisible(true);
-            explanation.setVisible(true);
-            explanation.setEditable(false);
-
-            saveBtn.setVisible(false);
+            try {
+                englishWord.setText(selectedWord);
+                explanation.setText(dictionary.get(selectedWord).getWord_explain());
+                headerOfExplanation.setVisible(true);
+                explanation.setVisible(true);
+                explanation.setEditable(false);
+                saveBtn.setVisible(false);
+                notAvailableAlert.setVisible(false);
+            } catch (Exception e) {
+                headerOfExplanation.setVisible(false);
+                explanation.setVisible(false);
+                notAvailableAlert.setText("Word: " + selectedWord + " is not found!");
+                notAvailableAlert.setVisible(true);
+            }
+            
         }
     }
 
@@ -141,10 +147,15 @@ public class SearchTransDelFix implements Initializable {
         saveBtn.setVisible(true);
     }
 
+    @FXML
+    private void handleClickedAddWordButton() {
+        
+    }
+
     //
     @FXML
     private void handleClickedVoiceButton() {
-        // Em Khai nhan lam
+        Sound.getSound(englishWord.getText(), Language.ENGLISH);
     }
 
     //

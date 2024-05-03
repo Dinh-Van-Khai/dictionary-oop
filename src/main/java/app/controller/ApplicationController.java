@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public class ApplicationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        showComponent("/view/translate.fxml");
+        showComponent("/view/dictionary.fxml");
         dictionaryBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -36,7 +36,7 @@ public class ApplicationController implements Initializable {
         gameBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                showComponent("/view/game.fxml");
+                showComponent("/view/menuGame.fxml");
             }
         });
 
