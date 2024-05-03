@@ -37,8 +37,6 @@ public class DictionaryController implements Initializable {
     @FXML
     private Button cancelBtn;
     @FXML
-    private Button addWordBtn;
-    @FXML
     private Label englishWord;
     @FXML
     private Label notAvailableAlert;
@@ -171,7 +169,7 @@ public class DictionaryController implements Initializable {
     //
     @FXML
     private void handleClickedDeleteButton() {
-        String selectedWord = listResults.getSelectionModel().getSelectedItem();
+        String selectedWord = explanation.getText();
         dictionaryManagement.dictionaryRemoveWord(selectedWord);
 
         f5RefreshAfterDeleting();
