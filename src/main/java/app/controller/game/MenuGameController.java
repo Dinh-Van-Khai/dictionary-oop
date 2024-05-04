@@ -6,59 +6,44 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MenuGameController extends Controller  {
-    String VIEWS_PATH = "/view/";
-
-    @FXML
-    private Button closeButton;
+    private final String VIEWS_PATH = "/view/";
 
     @FXML
     public void switchToMultipleChoiceScene(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(VIEWS_PATH + "MultipleChoice.fxml"));
-        root = loader.load();
-
-        MultipleChoiceController controller = loader.getController();
-        controller.initializeQuestion(event);
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        showComponent(VIEWS_PATH + "/MultipleChoice.fxml");
     }
 
     @FXML
     public void switchToMatchingWordScene(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(VIEWS_PATH + "MatchingWord.fxml"));
-        root = loader.load();
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        showComponent(VIEWS_PATH + "/MatchingWord.fxml");
     }
 
     @FXML
     public void switchToHangManGameScene(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(VIEWS_PATH + "HangMan.fxml"));
-        root = loader.load();
+        showComponent(VIEWS_PATH + "/HangMan.fxml");
+    }
 
-        HangManController hangManController = loader.getController();
-        hangManController.initializeQuestion(event);
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.show();
+    private void setNode(Node node) {
+        container.getChildren().clear();
+        container.getChildren().add(node);
     }
 
     @FXML
-    public void handleCloseButtonAction(ActionEvent event) {
-        Stage stage = (Stage) closeButton.getScene().getWindow();
-        stage.close();
+    private void showComponent(String path) {
+        try {
+            AnchorPane component = FXMLLoader.load(getClass().getResource(path));
+            setNode(component);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    @FXML
+    private AnchorPane container;
 }
