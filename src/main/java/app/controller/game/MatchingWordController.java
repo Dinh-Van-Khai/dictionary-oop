@@ -5,21 +5,25 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import game.gamejavaFX.MatchingWord;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MatchingWordController extends Controller {
-    String VIEWS_PATH ="/view/";
+public class MatchingWordController implements Initializable {
+    String VIEWS_PATH = "/view/";
     MatchingWord matchingWord = new MatchingWord();
 
     private Timeline countdownTimeline;
@@ -41,6 +45,15 @@ public class MatchingWordController extends Controller {
     private Label countdownLabel;
 
     @FXML
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            initializeQuestion(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void initializeQuestion(ActionEvent event) throws IOException {
         start.setVisible(false);
         computer.setVisible(true);
@@ -57,7 +70,7 @@ public class MatchingWordController extends Controller {
         matchingWord.answerList.add(word);
 
         // Lấy kỹ tự cuối cùng của từ khởi tạo
-        matchingWord.charactorKey = word.charAt(word.length()-1);
+        matchingWord.charactorKey = word.charAt(word.length() - 1);
 
         System.out.println(matchingWord.charactorKey);
         computer.setText(word);
@@ -71,23 +84,21 @@ public class MatchingWordController extends Controller {
         countdownTimeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     countdownSeconds--;
-                    if(countdownSeconds<10){
+                    if (countdownSeconds < 10) {
                         countdownLabel.setText("00:0" + countdownSeconds);
-                    }
-                    else {
+                    } else {
                         countdownLabel.setText("00:" + countdownSeconds);
                     }
 
                     if (countdownSeconds <= 0) {
-                            // Nếu hết thời gian :
-                            computer.setVisible(false);
-                            user.setVisible(false);
-                            gameOver.setVisible(true);
-                            replay.setVisible(true);
-                            countdownLabel.setVisible(false);
+                        // Nếu hết thời gian :
+                        computer.setVisible(false);
+                        user.setVisible(false);
+                        gameOver.setVisible(true);
+                        replay.setVisible(true);
+                        countdownLabel.setVisible(false);
                     }
-                })
-        );
+                }));
         countdownTimeline.setCycleCount(Timeline.INDEFINITE);
         countdownTimeline.play();
     }
@@ -110,18 +121,18 @@ public class MatchingWordController extends Controller {
         String userInput = user.getText().trim().toLowerCase();
         // đoán sai
         if (!matchingWord.checkAnswer(userInput)) {
-           computer.setVisible(false);
-           user.setVisible(false);
-           gameOver.setVisible(true);
-           replay.setVisible(true);
-           countdownLabel.setVisible(false);
+            computer.setVisible(false);
+            user.setVisible(false);
+            gameOver.setVisible(true);
+            replay.setVisible(true);
+            countdownLabel.setVisible(false);
         }
         // đoán đúng
         else {
             // Thêm vào danh sách kiểm tra độ trùng lặp
             matchingWord.answerList.add(userInput);
             // Lấy kỹ tự cuối của từ
-            matchingWord.charactorKey = userInput.charAt(userInput.length()-1);
+            matchingWord.charactorKey = userInput.charAt(userInput.length() - 1);
             System.out.println(matchingWord.charactorKey);
             // Tăng điểm
             matchingWord.increaseHighscore();
@@ -132,37 +143,37 @@ public class MatchingWordController extends Controller {
             // Máy hiển thị từ mới
             computer.setText(computerWord);
             // lấy ký tự cuối của máy
-            matchingWord.charactorKey = computerWord.charAt(computerWord.length()-1);
+            matchingWord.charactorKey = computerWord.charAt(computerWord.length() - 1);
             user.clear();
             countdownSeconds = 20;
         }
     }
 
     @FXML
-    public void switchBackToGameScene(ActionEvent event) throws IOException {
-        FXMLLoader gameScene = new FXMLLoader(getClass().getResource(VIEWS_PATH + "menuGame.fxml"));
-        root = gameScene.load();
-
-        MenuGameController menu = gameScene.getController();
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        scene.setFill(Color.TRANSPARENT);
-        stage.setScene(scene);
-        stage.show();
+    public void switchBackToGameScene(ActionEvent event) {
+        showComponent(VIEWS_PATH + "/menuGame.fxml");
     }
 
     @FXML
-    public void replay(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(VIEWS_PATH + "MatchingWord.fxml"));
-        root = loader.load();
-
-        MatchingWordController matchingWordController = loader.getController();
-        matchingWordController.initializeQuestion(event);
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void replay(ActionEvent event) {
+        showComponent(VIEWS_PATH + "/MatchingWord.fxml");
     }
+
+    private void setNode(Node node) {
+        container.getChildren().clear();
+        container.getChildren().add(node);
+    }
+
+    @FXML
+    private void showComponent(String path) {
+        try {
+            AnchorPane component = FXMLLoader.load(getClass().getResource(path));
+            setNode(component);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private AnchorPane container;
 }
