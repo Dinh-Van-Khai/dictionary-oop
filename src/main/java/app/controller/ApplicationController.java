@@ -3,19 +3,15 @@ package app.controller;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
-import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-
-import java.io.IOException;
+import tool.SceneSwitching;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ApplicationController implements Initializable {
+public class ApplicationController extends SceneSwitching implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         showComponent("/view/dictionary.fxml");
@@ -50,27 +46,9 @@ public class ApplicationController implements Initializable {
         });
     }
 
-    private void setNode(Node node) {
-        container.getChildren().clear();
-        container.getChildren().add(node);
-    }
-
-    @FXML
-    private void showComponent(String path) {
-        try {
-            AnchorPane component = FXMLLoader.load(getClass().getResource(path));
-            setNode(component);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     @FXML
     private Tooltip tooltip1, tooltip2, tooltip3, tooltip4;
 
     @FXML
     private Button addWordBtn, translateBtn, dictionaryBtn, closeBtn, gameBtn;
-
-    @FXML
-    private AnchorPane container;
 }
