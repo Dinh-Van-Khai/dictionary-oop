@@ -49,7 +49,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button mnemonicParsing="false" onAction="#initializeQuestion" prefHeight="52.0" prefWidth="210.0" text="Next Question" GridPane.columnIndex="3">
+                <Button mnemonicParsing="false" onAction="#initializeQuestion" prefHeight="52.0" prefWidth="210.0" text="Next Question" visible="false" GridPane.columnIndex="3">
                     <font>
                         <Font name="Comic Sans MS" size="25.0" />
                     </font></Button>

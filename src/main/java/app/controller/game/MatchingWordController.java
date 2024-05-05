@@ -85,6 +85,11 @@ public class MatchingWordController implements Initializable {
                 new KeyFrame(Duration.seconds(1), event -> {
                     countdownSeconds--;
                     if (countdownSeconds < 10) {
+                        if (countdownSeconds <= 3) {
+                            countdownLabel.setTextFill(Color.RED);
+                        } else {
+                            countdownLabel.setTextFill(Color.BLACK);
+                        }
                         countdownLabel.setText("00:0" + countdownSeconds);
                     } else {
                         countdownLabel.setText("00:" + countdownSeconds);
@@ -110,6 +115,7 @@ public class MatchingWordController implements Initializable {
             user.setOnKeyPressed(event -> {
                 if (event.getCode() == KeyCode.ENTER) {
                     handleAnswer();
+                    countdownLabel.setTextFill(Color.BLACK);
                 }
             });
         } else {
@@ -146,17 +152,18 @@ public class MatchingWordController implements Initializable {
             matchingWord.charactorKey = computerWord.charAt(computerWord.length() - 1);
             user.clear();
             countdownSeconds = 20;
+
         }
     }
 
     @FXML
     public void switchBackToGameScene(ActionEvent event) {
-        showComponent(VIEWS_PATH + "/menuGame.fxml");
+        showComponent(VIEWS_PATH + "menuGame.fxml");
     }
 
     @FXML
     public void replay(ActionEvent event) {
-        showComponent(VIEWS_PATH + "/MatchingWord.fxml");
+        showComponent(VIEWS_PATH + "MatchingWord.fxml");
     }
 
     private void setNode(Node node) {

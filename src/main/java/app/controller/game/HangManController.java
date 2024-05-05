@@ -121,16 +121,32 @@ public class HangManController implements Initializable {
         }
         // đoán đúng
         else {
+            hangman.increaseHighscore();
             resultBox.setText("Correct!");
             scoreBox.setText("Score: " + hangman.getScore());
             guessWord.setText(word.randGuessWord());
-            hangman.increaseHighscore();
             guessChar.clear();
+
         }
 
         if (word.completedWord()) {
             correctWord.setText("Congratulations! 🎉🎉🎉");
             guessChar.clear();
+
+            delay.setOnFinished(event -> {
+                correctWord.setVisible(false);
+                gameOver.setText("You Win!🎉🎉🎉");
+                gameOver.setVisible(true);
+                replay.setVisible(true);
+
+                guessWord.setVisible(false);
+                healthImage.setVisible(false);
+                Man.setVisible(false);
+                guessChar.setVisible(false);
+                resultBox.setVisible(false);
+                guessChar.clear();
+            });
+            delay.play();
         }
     }
 
@@ -139,22 +155,22 @@ public class HangManController implements Initializable {
         String imgMan = "";
         int health = hangman.getHealth();
         if (health == 5) {
-            imageheartName = "src/main/resources/img/game/5heart.png";
-            imgMan = "src/main/resources/img/game/hangmanfull.png";
+            imageheartName = "/img/game/5heart.png";
+            imgMan = "/img/game/hangmanfull.png";
         } else if (health == 4) {
-            imageheartName = "src/main/resources/img/game/4heart.png";
-            imgMan = "src/main/resources/img/game/hangman1leg.png";
+            imageheartName = "/img/game/4heart.png";
+            imgMan = "/img/game/hangman1leg.png";
         } else if (health == 3) {
-            imageheartName = "src/main/resources/img/game/3heart.png";
-            imgMan = "src/main/resources/img/game/hangman0leg.png";
+            imageheartName = "/img/game/3heart.png";
+            imgMan = "/img/game/hangman0leg.png";
         } else if (health == 2) {
-            imageheartName = "src/main/resources/img/game/2heart.png";
-            imgMan = "src/main/resources/img/game/hangman0leg1hand.png";
+            imageheartName = "/img/game/2heart.png";
+            imgMan = "/img/game/hangman0leg1hand.png";
         } else if (health == 1) {
-            imageheartName = "src/main/resources/img/game/1heart.png";
-            imgMan = "src/main/resources/img/game/hangman0leg0hand.png";
+            imageheartName = "/img/game/1heart.png";
+            imgMan = "/img/game/hangman0leg0hand.png";
         } else if (health == 0) {
-            imgMan = "src/main/resources/img/game/hangman0body.png";
+            imgMan = "/img/game/hangman0body.png";
         }
         URL imageUrl = getClass().getResource(imageheartName);
         if (imageUrl != null) {
@@ -191,7 +207,7 @@ public class HangManController implements Initializable {
 
     @FXML
     public void switchBackToGameScene(ActionEvent event) {
-        showComponent(VIEWS_PATH + "/menuGame.fxml");
+        showComponent(VIEWS_PATH + "menuGame.fxml");
     }
 
     @FXML

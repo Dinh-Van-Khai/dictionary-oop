@@ -74,7 +74,7 @@ public class MultipleChoiceController implements Initializable {
         answerB.setText(question.getListAnswers().get(1));
         answerC.setText(question.getListAnswers().get(2));
         answerD.setText(question.getListAnswers().get(3));
-
+        updateImageHealth();
         gameOver.setVisible(false);
         replay.setVisible(false);
         answerA.setVisible(true);
@@ -94,6 +94,9 @@ public class MultipleChoiceController implements Initializable {
                 new KeyFrame(Duration.seconds(1), event -> {
                     countdownSeconds--;
                     if (countdownSeconds < 10) {
+                        if (countdownSeconds <= 3) {
+                            countdownLabel.setTextFill(Color.RED);
+                        }
                         countdownLabel.setText("00:0" + countdownSeconds);
                     } else {
                         countdownLabel.setText("00:" + countdownSeconds);
@@ -113,6 +116,7 @@ public class MultipleChoiceController implements Initializable {
     }
 
     public void autoChangeQuestion() {
+        countdownLabel.setTextFill(Color.BLACK);
         question = game.randomQuestion();
         question.setListAnswers(game.createRandomAnswers(question.getAnswer()));
         questionBox.setText(question.getQuestion());
@@ -145,6 +149,7 @@ public class MultipleChoiceController implements Initializable {
             answerB.setVisible(false);
             answerC.setVisible(false);
             answerD.setVisible(false);
+            countdownLabel.setVisible(false);
         }
         countdownSeconds = 20;
     }
@@ -153,15 +158,15 @@ public class MultipleChoiceController implements Initializable {
         String imageheartName = "";
         int health = game.getHealth();
         if (health == 5) {
-            imageheartName = "src/main/resources/img/game/5heart.png";
+            imageheartName = "/img/game/5heart.png";
         } else if (health == 4) {
-            imageheartName = "src/main/resources/img/game/4heart.png";
+            imageheartName = "/img/game/4heart.png";
         } else if (health == 3) {
-            imageheartName = "src/main/resources/img/game/3heart.png";
+            imageheartName = "/img/game/3heart.png";
         } else if (health == 2) {
-            imageheartName = "src/main/resources/img/game/2heart.png";
+            imageheartName = "/img/game/2heart.png";
         } else if (health == 1) {
-            imageheartName = "src/main/resources/img/game/1heart.png";
+            imageheartName = "/img/game/1heart.png";
         }
         URL imageUrl = getClass().getResource(imageheartName);
         if (imageUrl != null) {
@@ -215,12 +220,12 @@ public class MultipleChoiceController implements Initializable {
 
     @FXML
     public void switchBackToGameScene(ActionEvent event) {
-        showComponent(VIEWS_PATH + "/menuGame.fxml");
+        showComponent(VIEWS_PATH + "menuGame.fxml");
     }
 
     @FXML
     public void replay(ActionEvent event) {
-        showComponent(VIEWS_PATH + "/MultipleChoice.fxml");
+        showComponent(VIEWS_PATH + "MultipleChoice.fxml");
     }
 
     private void setNode(Node node) {
