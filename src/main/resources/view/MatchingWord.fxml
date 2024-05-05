@@ -9,16 +9,16 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.game.MatchingWordController">
+<AnchorPane fx:id="container" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.game.MatchingWordController">
    <children>
       <Label fx:id="computer" alignment="CENTER" contentDisplay="CENTER" layoutX="438.0" layoutY="241.0" prefHeight="132.0" prefWidth="402.0" text="Word" visible="false">
          <font>
             <Font name="Comic Sans MS" size="50.0" />
          </font>
       </Label>
-      <TextField fx:id="user" alignment="CENTER" layoutX="476.0" layoutY="411.0" prefHeight="132.0" prefWidth="327.0" promptText="Done" visible="false">
+      <TextField fx:id="user" alignment="CENTER" layoutX="463.0" layoutY="411.0" prefHeight="132.0" prefWidth="340.0" promptText="Fill in your words" visible="false">
          <font>
-            <Font size="50.0" />
+            <Font name="Comic Sans MS" size="38.0" />
          </font>
       </TextField>
       <Label fx:id="gameOver" layoutX="417.0" layoutY="184.0" text="Game Over" visible="false">
@@ -31,7 +31,7 @@
             <Font name="Comic Sans MS" size="25.0" />
          </font>
       </Button>
-      <GridPane layoutX="-2.0" layoutY="-2.0" prefHeight="74.0" prefWidth="718.0">
+      <GridPane layoutX="-2.0" layoutY="-2.0" prefHeight="74.0" prefWidth="462.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -57,7 +57,7 @@
             <Font name="Comic Sans MS" size="85.0" />
          </font>
       </Button>
-      <Label fx:id="countdownLabel" layoutX="1030.0" layoutY="147.0" text="00:20" visible="false">
+      <Label fx:id="countdownLabel" layoutX="575.0" layoutY="35.0" text="00:20">
          <font>
             <Font size="50.0" />
          </font>
