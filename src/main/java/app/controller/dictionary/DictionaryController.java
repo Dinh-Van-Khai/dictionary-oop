@@ -10,15 +10,15 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import tool.Language;
+import tool.SceneSwitching;
 import tool.Sound;
 import dictionary.Dictionary;
 import dictionary.DictionaryManagement;
 
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DictionaryController implements Initializable {
+public class DictionaryController extends SceneSwitching implements Initializable {
 
     private ObservableList<String> list = FXCollections.observableArrayList();
     protected static Dictionary dictionary;
@@ -148,7 +148,7 @@ public class DictionaryController implements Initializable {
 
     @FXML
     private void handleClickedAddWordButton() {
-        
+        showComponent("/view/AddWord.fxml");
     }
 
     //

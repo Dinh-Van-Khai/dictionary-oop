@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="473.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.dictionary.DictionaryController">
+<AnchorPane fx:id="container" prefHeight="473.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.dictionary.DictionaryController">
    <children>
       <Button fx:id="addWordBtn" contentDisplay="GRAPHIC_ONLY" layoutX="720.0" mnemonicParsing="false" onAction="#handleClickedAddWordButton" prefHeight="71.0" prefWidth="70.0" text="Button">
          <tooltip>
@@ -89,14 +89,14 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="explanation" layoutY="59.0" prefHeight="344.0" prefWidth="548.0" text="Explain">
+                  <TextArea fx:id="explanation" layoutY="59.0" prefHeight="344.0" prefWidth="548.0" promptText="Explain">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </TextArea>
                   <Pane fx:id="headerOfExplanation" prefHeight="64.0" prefWidth="548.0">
                      <children>
-                        <Button contentDisplay="GRAPHIC_ONLY" layoutX="319.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleClickedVoiceButton" text="Speak">
+                        <Button contentDisplay="GRAPHIC_ONLY" layoutX="399.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleClickedVoiceButton" text="Speak">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -120,7 +120,7 @@
                               <Tooltip text="Empty Tooltip" />
                            </tooltip>
                         </Button>
-                        <Button contentDisplay="GRAPHIC_ONLY" layoutX="409.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleClickedEditButton" text="Edit">
+                        <Button contentDisplay="GRAPHIC_ONLY" layoutX="443.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleClickedEditButton" text="Edit">
                            <graphic>
                               <ImageView fitHeight="29.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -132,7 +132,7 @@
                               <Tooltip text="Empty Tooltip" />
                            </tooltip>
                         </Button>
-                        <Label fx:id="englishWord" layoutX="10.0" prefHeight="64.0" prefWidth="198.0" text="English Word">
+                        <Label fx:id="englishWord" layoutX="10.0" prefHeight="64.0" prefWidth="384.0" text="English Word">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>

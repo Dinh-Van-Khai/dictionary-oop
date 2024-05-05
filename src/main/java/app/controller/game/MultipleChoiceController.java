@@ -7,24 +7,20 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 import javafx.util.Duration;
+import tool.SceneSwitching;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MultipleChoiceController implements Initializable {
+public class MultipleChoiceController extends SceneSwitching implements Initializable {
     private Timeline countdownTimeline;
     private int countdownSeconds = 20;
     String VIEWS_PATH = "/view/";
@@ -227,22 +223,4 @@ public class MultipleChoiceController implements Initializable {
     public void replay(ActionEvent event) {
         showComponent(VIEWS_PATH + "MultipleChoice.fxml");
     }
-
-    private void setNode(Node node) {
-        container.getChildren().clear();
-        container.getChildren().add(node);
-    }
-
-    @FXML
-    private void showComponent(String path) {
-        try {
-            AnchorPane component = FXMLLoader.load(getClass().getResource(path));
-            setNode(component);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private AnchorPane container;
 }

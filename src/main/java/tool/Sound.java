@@ -2,6 +2,8 @@ package tool;
 
 import java.io.IOException;
 import java.net.URLEncoder;
+
+import javafx.scene.control.Alert;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -23,7 +25,11 @@ public class Sound {
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
             mediaPlayer.play();
         } catch (IOException e) {
-            e.printStackTrace();
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setTitle("Error");
+            alert1.setHeaderText("Internet connection error");
+            alert1.setContentText("Unable to translate due to internet connection error!");
+            alert1.show();
         }
     }
 }

@@ -4,25 +4,20 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import javafx.util.Duration;
+import tool.SceneSwitching;
 import game.gamejavaFX.MatchingWord;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MatchingWordController implements Initializable {
+public class MatchingWordController extends SceneSwitching implements Initializable {
     String VIEWS_PATH = "/view/";
     MatchingWord matchingWord = new MatchingWord();
 
@@ -165,22 +160,4 @@ public class MatchingWordController implements Initializable {
     public void replay(ActionEvent event) {
         showComponent(VIEWS_PATH + "MatchingWord.fxml");
     }
-
-    private void setNode(Node node) {
-        container.getChildren().clear();
-        container.getChildren().add(node);
-    }
-
-    @FXML
-    private void showComponent(String path) {
-        try {
-            AnchorPane component = FXMLLoader.load(getClass().getResource(path));
-            setNode(component);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private AnchorPane container;
 }

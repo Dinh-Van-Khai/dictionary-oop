@@ -3,7 +3,6 @@ package app.controller.dictionary;
 import dictionary.Word;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -16,14 +15,10 @@ public class AddWordController extends DictionaryController {
     @FXML
     private Button addWordButton;
     @FXML
-    private Label successLabel;
-    @FXML
-    private Label errorLabel;
+    private Button backBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        successLabel.setVisible(false);
-        errorLabel.setVisible(false);
 
         if (wordTargetInput.getText().isEmpty() || wordExplainInput.getText().isEmpty()) {
             addWordButton.setDisable(true);
@@ -52,20 +47,13 @@ public class AddWordController extends DictionaryController {
                 Word newWord = new Word(wordTarget, wordExplain);
 
                 if (dictionary.containsKey(wordTarget)) {
-                    errorLabel.setVisible(true);
-                    successLabel.setVisible(false);
-
                     Alert alert1 = new Alert(Alert.AlertType.WARNING);
                     alert1.setTitle("Warning");
                     alert1.setHeaderText(null);
                     alert1.setContentText("Word already exists");
                     alert1.show();
-                    System.out.println("Errol");
                 } else {
                     dictionary.put(wordTarget, newWord);
-                    successLabel.setVisible(true);
-                    errorLabel.setVisible(false);
-
                     resetInput();
                     addWordButton.setDisable(true);
 
@@ -74,10 +62,14 @@ public class AddWordController extends DictionaryController {
                     alert2.setHeaderText(null);
                     alert2.setContentText("Word added successfully");
                     alert2.show();
-                    System.out.println("Success");
                 }
             }
         });
+    }
+
+    @FXML
+    private void handleClickedBackButton() {
+        showComponent("/view/dictionary.fxml");
     }
 
     private void resetInput() {
