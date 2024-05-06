@@ -10,26 +10,30 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="427.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.translate.TranslateController">
+<AnchorPane prefHeight="760.0" prefWidth="1265.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.translate.TranslateController">
    <children>
-      <Label prefHeight="61.0" prefWidth="593.0" text="Translate">
+      <Label layoutX="15.0" layoutY="14.0" prefHeight="94.0" prefWidth="1235.0" text="  Translate" textFill="#1d8096">
          <graphic>
-            <ImageView fitHeight="60.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/translate/translate-icon.png" />
-               </image></ImageView>
+               </image>
+            </ImageView>
          </graphic>
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="64.0" />
          </font>
       </Label>
-      <Pane layoutY="55.0" prefHeight="326.0" prefWidth="594.0">
+      <Pane layoutX="13.0" layoutY="121.0" prefHeight="624.0" prefWidth="1235.0">
          <children>
-            <Pane layoutX="3.0" prefHeight="326.0" prefWidth="294.0">
+            <Pane layoutX="3.0" prefHeight="523.0" prefWidth="616.0">
                <children>
-                  <ComboBox fx:id="langFrom" prefHeight="44.0" prefWidth="294.0" />
-                  <TextArea fx:id="textFrom" layoutY="45.0" prefHeight="231.0" prefWidth="294.0" />
-                  <Button fx:id="soundTextFrom" layoutY="275.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="44.0">
+                  <ComboBox fx:id="langFrom" prefHeight="44.0" prefWidth="616.0" />
+                  <TextArea fx:id="textFrom" layoutY="45.0" prefHeight="413.0" prefWidth="616.0" promptText="Text to be translated">
+                     <font>
+                        <Font size="24.0" />
+                     </font></TextArea>
+                  <Button fx:id="soundTextFrom" layoutX="14.0" layoutY="458.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="44.0">
                      <graphic>
                         <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -40,11 +44,14 @@
                   </Button>
                </children>
             </Pane>
-            <Pane layoutX="297.0" prefHeight="326.0" prefWidth="294.0">
+            <Pane layoutX="618.0" prefHeight="523.0" prefWidth="616.0">
                <children>
-                  <ComboBox fx:id="langTo" prefHeight="44.0" prefWidth="294.0" />
-                  <TextArea fx:id="textTo" layoutY="45.0" prefHeight="231.0" prefWidth="294.0" />
-                  <Button fx:id="soundTextTo" layoutY="275.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="59.0">
+                  <ComboBox fx:id="langTo" prefHeight="44.0" prefWidth="616.0" />
+                  <TextArea fx:id="textTo" layoutY="45.0" prefHeight="413.0" prefWidth="616.0" promptText="Translation...">
+                     <font>
+                        <Font size="24.0" />
+                     </font></TextArea>
+                  <Button fx:id="soundTextTo" layoutX="14.0" layoutY="458.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="59.0">
                      <graphic>
                         <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -55,7 +62,10 @@
                   </Button>
                </children>
             </Pane>
+            <Button fx:id="translateBtn" layoutX="538.0" layoutY="548.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="160.0" text="Translate">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
          </children></Pane>
-      <Button fx:id="translateBtn" layoutX="261.0" layoutY="381.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="70.0" text="Translate" />
    </children>
 </AnchorPane>

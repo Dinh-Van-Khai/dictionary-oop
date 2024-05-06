@@ -70,10 +70,8 @@ public class HangManController extends SceneSwitching implements Initializable {
         if (guessChar != null) {
             guessChar.setEditable(true);
 
-            guessChar.setOnKeyPressed(event -> {
-                if (event.getCode() == KeyCode.ENTER) {
-                    handleAnswer();
-                }
+            guessChar.setOnKeyTyped(event -> {
+                handleAnswer();
             });
         } else {
             System.out.println("guessChar is null!");
@@ -85,7 +83,7 @@ public class HangManController extends SceneSwitching implements Initializable {
         char userChar = userInput.charAt(0);
         // đoán sai
         if (!word.checkAnswers(userChar)) {
-            resultBox.setText("Wrong!");
+            resultBox.setText("Letter \"" + userChar + "\" wrong!");
             hangman.decreaseHealth();
 
             if (hangman.getHealth() <= 0) {
@@ -115,7 +113,7 @@ public class HangManController extends SceneSwitching implements Initializable {
         // đoán đúng
         else {
             hangman.increaseHighscore();
-            resultBox.setText("Correct!");
+            resultBox.setText("Letter \"" + userChar + "\" correct!");
             scoreBox.setText("Score: " + hangman.getScore());
             guessWord.setText(word.randGuessWord());
             guessChar.clear();

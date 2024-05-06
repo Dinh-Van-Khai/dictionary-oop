@@ -143,7 +143,7 @@
 #sidePaneButton:hover {
     -fx-cursor: hand;
     -fx-text-fill: -text-color;
-    -fx-background-color: -main-color;//linear-gradient(from -50% 50% to 100% 50%, -accent-color, -main-color)
+    -fx-background-color: -main-color;
     -fx-background-radius: 20;
     -fx-border-color: -main-color;
     -fx-border-radius: 50;
