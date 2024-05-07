@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="container" prefHeight="760.0" prefWidth="1265.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.dictionary.AddWordController">
+<AnchorPane fx:id="container" prefHeight="760.0" prefWidth="1265.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.dictionary.AddWordController">
     <children>
-        <Label layoutX="15.0" layoutY="14.0" prefHeight="94.0" prefWidth="1235.0" text="  Add new word" textFill="#1d8096">
+        <Label layoutX="15.0" layoutY="14.0" prefHeight="94.0" prefWidth="1235.0" styleClass="scene-label" text="  Add new word" textFill="#1d8096">
          <graphic>
             <ImageView fitHeight="80.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -34,7 +34,7 @@
             </Tooltip>
          </tooltip>
          <graphic>
-            <ImageView fitHeight="40.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="73.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/dictionary/back-icon.png" />
                </image>
@@ -54,7 +54,7 @@
                <font>
                   <Font size="18.0" />
                </font></TextArea>
-                <Button fx:id="addWordButton" layoutX="538.0" layoutY="548.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="160.0" text="Add word">
+                <Button fx:id="addWordButton" layoutX="538.0" layoutY="548.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="160.0" styleClass="button-with-background" text="Add word">
                <font>
                   <Font size="18.0" />
                </font></Button>
