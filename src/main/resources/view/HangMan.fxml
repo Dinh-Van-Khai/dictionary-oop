@@ -12,10 +12,10 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="mcAnchorPane" fx:id="container" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.game.HangManController">
+<AnchorPane id="mcAnchorPane" fx:id="container" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #CFC790;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.game.HangManController">
     <children>
         <ImageView fx:id="imageView" fitHeight="720.0" fitWidth="1278.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" styleClass="rounded-search-box" />
-        <GridPane id="mcGridPane1" prefHeight="54.0" prefWidth="1338.0">
+        <GridPane id="mcGridPane1" layoutY="18.0" prefHeight="42.0" prefWidth="1338.0" style="-fx-background-color: #4D3930;">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.199951171875" minWidth="10.0" prefWidth="218.39996337890625" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="293.60003662109375" minWidth="10.0" prefWidth="293.60003662109375" />
@@ -24,22 +24,22 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label id="mcText" fx:id="scoreBox" text="Score: 0" GridPane.columnIndex="1">
+                <Label id="mcText" fx:id="scoreBox" text="Score: 0" textFill="#f2f2f2" GridPane.columnIndex="1">
                     <padding>
                         <Insets left="70.0" />
                     </padding>
                     <font>
-                        <Font name="Comic Sans MS" size="30.0" />
+                        <Font name="Comic Sans MS" size="25.0" />
                     </font>
                 </Label>
-                <Button id="functionButton" mnemonicParsing="false" onAction="#switchBackToGameScene" prefHeight="63.0" prefWidth="113.0" text="Back">
+                <Button id="functionButton" mnemonicParsing="false" onAction="#switchBackToGameScene" prefHeight="66.0" prefWidth="162.0" style="-fx-background-color: #CFC790; -fx-border-width: 2; -fx-border-color: #4D3930;" text="Back" textFill="#4d3930">
                     <font>
-                        <Font name="Comic Sans MS" size="30.0" />
+                        <Font name="Comic Sans MS" size="25.0" />
                     </font>
                 </Button>
             </children>
         </GridPane>
-        <ImageView fx:id="healthImage" fitHeight="182.0" fitWidth="396.0" layoutX="740.0" layoutY="-6.0" preserveRatio="true" GridPane.columnIndex="2">
+        <ImageView fx:id="healthImage" fitHeight="182.0" fitWidth="396.0" layoutX="839.0" layoutY="60.0" preserveRatio="true" GridPane.columnIndex="2">
             <image>
                 <Image url="@../img/game/5heart.png" />
             </image>
@@ -63,13 +63,13 @@
             </font>
         </Label>
         <!--        style="-fx-alignment: center; -fx-font-size: 26px; -fx-wrap-text: true;"/>-->
-        <TextField fx:id="guessChar" layoutX="740.0" layoutY="564.0" prefHeight="46.0" prefWidth="410.0" promptText="Enter the letter you guessed..." styleClass="rounded-search-box" />
+        <TextField fx:id="guessChar" layoutX="740.0" layoutY="564.0" prefHeight="46.0" prefWidth="410.0" promptText="Enter the letter you guessed..." style="-fx-background-radius: 20; -fx-border-width: 1;" styleClass="rounded-search-box" />
         <ImageView fx:id="Man" fitHeight="346.0" fitWidth="442.0" layoutX="97.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/game/hangmanfull.png" />
             </image>
         </ImageView>
-        <Button fx:id="replay" layoutX="562.0" layoutY="411.0" mnemonicParsing="false" onAction="#replay" prefHeight="80.0" prefWidth="154.0" text="Replay" visible="false">
+        <Button fx:id="replay" layoutX="562.0" layoutY="411.0" mnemonicParsing="false" onAction="#replay" prefHeight="80.0" prefWidth="154.0" style="-fx-background-radius: 20; -fx-background-color: #4D3930;" text="Replay" textFill="#efefef" visible="false">
             <font>
                 <Font name="Comic Sans MS" size="35.0" />
             </font>
