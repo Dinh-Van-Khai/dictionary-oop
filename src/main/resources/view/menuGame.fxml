@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="container" prefHeight="760.0" prefWidth="1265.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.game.MenuGameController">
+<AnchorPane fx:id="container" prefHeight="760.0" prefWidth="1265.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.game.MenuGameController">
    <children>
       <ImageView fitHeight="217.0" fitWidth="247.0" layoutX="151.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,15 +23,15 @@
             <Image url="@../img/game/matchingword.png" />
          </image>
       </ImageView>
-      <Button layoutX="556.0" layoutY="476.0" mnemonicParsing="false" onAction="#switchToHangManGameScene" prefHeight="55.0" prefWidth="150.0" text="Hang Man">
+      <Button layoutX="556.0" layoutY="476.0" mnemonicParsing="false" onAction="#switchToHangManGameScene" prefHeight="55.0" prefWidth="150.0" styleClass="button-with-background" text="Hang Man">
          <font>
             <Font name="Comic Sans MS" size="25.0" />
          </font></Button>
-      <Button layoutX="911.0" layoutY="476.0" mnemonicParsing="false" onAction="#switchToMatchingWordScene" prefHeight="55.0" prefWidth="217.0" text="Matching Word">
+      <Button layoutX="911.0" layoutY="476.0" mnemonicParsing="false" onAction="#switchToMatchingWordScene" prefHeight="55.0" prefWidth="217.0" styleClass="button-with-background" text="Matching Word">
          <font>
             <Font name="Comic Sans MS" size="25.0" />
          </font></Button>
-      <Button layoutX="151.0" layoutY="476.0" mnemonicParsing="false" onAction="#switchToMultipleChoiceScene" prefHeight="55.0" prefWidth="217.0" text="Multiple Choice">
+      <Button layoutX="151.0" layoutY="476.0" mnemonicParsing="false" onAction="#switchToMultipleChoiceScene" prefHeight="55.0" prefWidth="217.0" styleClass="button-with-background" text="Multiple Choice">
          <font>
             <Font name="Comic Sans MS" size="25.0" />
          </font></Button>
