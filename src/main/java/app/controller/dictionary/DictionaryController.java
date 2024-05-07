@@ -82,6 +82,7 @@ public class DictionaryController extends SceneSwitching implements Initializabl
         listResults.setOnMouseClicked(this::handleMouseClickedAWord);
 
         explanation.setDisable(false);
+        explanation.setEditable(false);
         saveBtn.setVisible(false);
         cancelBtn.setVisible(false);
         notAvailableAlert.setVisible(false);
@@ -89,6 +90,7 @@ public class DictionaryController extends SceneSwitching implements Initializabl
 
     //
     private void setListDefault() {
+        listResults.setItems(null);
     }
 
     //

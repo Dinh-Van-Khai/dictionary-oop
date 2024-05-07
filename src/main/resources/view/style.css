@@ -1,0 +1,60 @@
+/* application */
+.root {
+    -fx-background-color: #f0f0f0;
+}
+
+.navigation {
+    -fx-background-color: #98e7f9;
+    -fx-background-radius: 16px 0 0 16px;
+
+}
+
+.button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 12.5%;
+}
+
+.button:hover {
+    -fx-background-color: #1d8096;
+}
+
+.exit-button:hover {
+    -fx-background-color: #d32f2f;
+}
+
+/* dictionary */
+.scene-label {
+    -fx-background-radius: 16px;
+    -fx-background-color: #98e7f9;
+    -fx-padding: 0 8px;
+}
+
+.head-bar {
+    -fx-border-color: #aaa;
+    -fx-border-width: 1px 1px 0px 1px;
+    -fx-border-radius: 10px 10px 0 0;
+    -fx-background-color: #98e7f9;
+    -fx-background-radius: 10px 10px 0 0;
+}
+
+.list {
+    -fx-font-size: 24px;
+}
+
+/* add word */
+.button-with-background {
+    -fx-background-color: #98e7f9;
+    -fx-background-radius: 20px;
+    -fx-border-color: #aaa;
+    -fx-border-width: 1px;
+    -fx-border-radius: 20px;
+}
+
+/* translate */
+.white-area {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-color: #aaa;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}

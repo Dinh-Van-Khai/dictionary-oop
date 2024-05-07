@@ -13,9 +13,21 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="container" prefHeight="473.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.dictionary.DictionaryController">
+<AnchorPane fx:id="container" prefHeight="760.0" prefWidth="1265.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.dictionary.DictionaryController">
    <children>
-      <Button fx:id="addWordBtn" contentDisplay="GRAPHIC_ONLY" layoutX="720.0" mnemonicParsing="false" onAction="#handleClickedAddWordButton" prefHeight="71.0" prefWidth="70.0" text="Button">
+      <Label layoutX="15.0" layoutY="14.0" prefHeight="94.0" prefWidth="1235.0" styleClass="scene-label" text="  Dictionary" textFill="#1d8096">
+         <graphic>
+            <ImageView fitHeight="80.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/dictionary/dictionary.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="64.0" />
+         </font>
+      </Label>
+      <Button fx:id="addWordBtn" contentDisplay="GRAPHIC_ONLY" layoutX="1177.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleClickedAddWordButton" prefHeight="71.0" prefWidth="70.0" styleClass="function-button" text="Button">
          <tooltip>
             <Tooltip text="Add word">
                <font>
@@ -34,35 +46,26 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label prefHeight="71.0" prefWidth="719.0" text="Dictionary">
-         <graphic>
-            <ImageView fitHeight="71.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/dictionary/dictionary.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <AnchorPane layoutY="73.0" prefHeight="359.0" prefWidth="600.0">
+      <AnchorPane layoutX="13.0" layoutY="121.0" prefHeight="593.0" prefWidth="1235.0">
          <children>
-            <AnchorPane prefHeight="400.0" prefWidth="220.0">
+            <AnchorPane prefHeight="626.0" prefWidth="406.0">
                <children>
-                  <Pane prefHeight="58.0" prefWidth="241.0">
+                  <Pane prefHeight="64.0" prefWidth="406.0" styleClass="head-bar">
                      <children>
-                        <TextField fx:id="searchTerm" layoutX="40.0" layoutY="11.0" prefHeight="38.0" prefWidth="155.0" promptText="Enter the word to search" />
-                        <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="2.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                        <TextField fx:id="searchTerm" layoutX="59.0" prefHeight="64.0" prefWidth="288.0" promptText="Enter the word to search">
+                           <font>
+                              <Font size="24.0" />
+                           </font></TextField>
+                        <ImageView fitHeight="46.0" fitWidth="56.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icons/icons8_search_24px.png" />
+                              <Image url="@../img/dictionary/search.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="cancelBtn" layoutX="194.0" layoutY="11.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="46.0">
+                        <Button fx:id="cancelBtn" layoutX="346.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="60.0" styleClass="function-button">
                            <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="48.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icons/icons8_cancel_30px.png" />
+                                    <Image url="@../img/dictionary/clear.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -72,78 +75,78 @@
                         </Button>
                      </children>
                   </Pane>
-                  <ListView fx:id="listResults" layoutY="58.0" prefHeight="344.0" prefWidth="242.0" />
+                  <ListView fx:id="listResults" layoutY="64.0" prefHeight="560.0" prefWidth="406.0" styleClass="list" />
                </children>
             </AnchorPane>
-            <Pane layoutX="242.0" prefHeight="403.0" prefWidth="548.0">
+            <Pane layoutX="408.0" layoutY="-1.0" prefHeight="626.0" prefWidth="827.0">
                <children>
-                  <Label fx:id="notAvailableAlert" prefHeight="58.0" prefWidth="548.0" text="Word not found">
+                  <Label fx:id="notAvailableAlert" layoutX="16.0" layoutY="6.0" prefHeight="64.0" prefWidth="532.0" text=" Word not found">
                      <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="59.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icons/icons8-wrong-48.png" />
+                              <Image url="@../img/dictionary/wrong.png" />
                            </image>
                         </ImageView>
                      </graphic>
                      <font>
-                        <Font size="18.0" />
+                        <Font size="36.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="explanation" layoutY="59.0" prefHeight="344.0" prefWidth="548.0" promptText="Explain">
+                  <TextArea fx:id="explanation" layoutY="65.0" prefHeight="560.0" prefWidth="830.0" promptText="Explain">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </TextArea>
-                  <Pane fx:id="headerOfExplanation" prefHeight="64.0" prefWidth="548.0">
+                  <Pane fx:id="headerOfExplanation" layoutY="1.0" prefHeight="64.0" prefWidth="830.0" styleClass="head-bar">
                      <children>
-                        <Button contentDisplay="GRAPHIC_ONLY" layoutX="399.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleClickedVoiceButton" text="Speak">
+                        <Button contentDisplay="GRAPHIC_ONLY" layoutX="620.0" mnemonicParsing="false" onAction="#handleClickedVoiceButton" prefHeight="64.0" prefWidth="70.0" styleClass="function-button" text="Speak">
                            <graphic>
-                              <ImageView fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="64.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icons/icons8-sound-64.png" />
+                                    <Image url="@../img/translate/speaker.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip text="Empty Tooltip" />
+                              <Tooltip text="Speak" />
                            </tooltip>
                         </Button>
-                        <Button contentDisplay="GRAPHIC_ONLY" layoutX="488.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleClickedDeleteButton" prefHeight="38.0" prefWidth="45.0" text="Delete">
+                        <Button contentDisplay="GRAPHIC_ONLY" layoutX="760.0" mnemonicParsing="false" onAction="#handleClickedDeleteButton" prefHeight="64.0" prefWidth="70.0" styleClass="function-button" text="Delete">
                            <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="57.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icons/icons8-delete-100.png" />
+                                    <Image url="@../img/dictionary/delete.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip text="Empty Tooltip" />
+                              <Tooltip text="Delete" />
                            </tooltip>
                         </Button>
-                        <Button contentDisplay="GRAPHIC_ONLY" layoutX="443.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleClickedEditButton" text="Edit">
+                        <Button contentDisplay="GRAPHIC_ONLY" layoutX="690.0" mnemonicParsing="false" onAction="#handleClickedEditButton" prefHeight="64.0" prefWidth="70.0" styleClass="function-button" text="Edit">
                            <graphic>
-                              <ImageView fitHeight="29.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="59.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icons/icons8-edit.gif" />
+                                    <Image url="@../img/dictionary/edit.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip text="Empty Tooltip" />
+                              <Tooltip text="Edit" />
                            </tooltip>
                         </Button>
-                        <Label fx:id="englishWord" layoutX="10.0" prefHeight="64.0" prefWidth="384.0" text="English Word">
+                        <Label fx:id="englishWord" layoutX="14.0" prefHeight="64.0" prefWidth="607.0" text="English Word">
                            <font>
-                              <Font name="System Bold" size="18.0" />
+                              <Font name="System Bold" size="36.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Button fx:id="saveBtn" contentDisplay="GRAPHIC_ONLY" layoutX="480.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleClickedSaveButton" prefHeight="38.0" prefWidth="44.0" text="Save edit">
+                  <Button fx:id="saveBtn" contentDisplay="GRAPHIC_ONLY" layoutX="760.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleClickedSaveButton" prefHeight="64.0" prefWidth="70.0" styleClass="function-button" text="Save edit">
                      <graphic>
-                        <ImageView fitHeight="53.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="59.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icons/icons8_checkmark_40px.png" />
+                              <Image url="@../img/dictionary/checkmark.png" />
                            </image>
                         </ImageView>
                      </graphic>
