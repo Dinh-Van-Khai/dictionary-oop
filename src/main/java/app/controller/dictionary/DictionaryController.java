@@ -37,8 +37,6 @@ public class DictionaryController extends SceneSwitching implements Initializabl
     @FXML
     private Button cancelBtn;
     @FXML
-    private Button addWordBtn;
-    @FXML
     private Label englishWord;
     @FXML
     private Label notAvailableAlert;
@@ -61,6 +59,7 @@ public class DictionaryController extends SceneSwitching implements Initializabl
                 setListDefault();
             } else {
                 cancelBtn.setVisible(true);
+
                 // function that processes keyboard input strings
                 handleOnKeyTyped();
                 searchTerm.setOnKeyPressed(keyEvent1 -> {
@@ -172,7 +171,7 @@ public class DictionaryController extends SceneSwitching implements Initializabl
     //
     @FXML
     private void handleClickedDeleteButton() {
-        String selectedWord = listResults.getSelectionModel().getSelectedItem();
+        String selectedWord = explanation.getText();
         dictionaryManagement.dictionaryRemoveWord(selectedWord);
 
         f5RefreshAfterDeleting();

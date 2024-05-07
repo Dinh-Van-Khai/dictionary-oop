@@ -8,20 +8,6 @@ public class Word {
   private String word_explain;
 
   /**
-   * Func use to check which char is right
-   *
-   * @param c char
-   * @return true/false
-   */
-  private static boolean validCharacter(char c) {
-    if (c == '-') {
-      return true;
-    } else {
-      return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';
-    }
-  }
-
-  /**
    * Constructor initialized with 2 parameters.
    *
    * @param word_target  eng word

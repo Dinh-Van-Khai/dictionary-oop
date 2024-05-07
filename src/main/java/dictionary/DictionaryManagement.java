@@ -189,9 +189,7 @@ public class DictionaryManagement {
         boolean check = false;
         for (String word : keySet) {
             int len_word = word.length();
-            if (len_word < len_key)
-                continue;
-            else {
+            if (len_word >= len_key) {
                 String tmp = word.substring(0, len_key);
                 if (tmp.compareTo(key) == 0) {
                     check = true;
@@ -300,25 +298,4 @@ public class DictionaryManagement {
         }
         return results;
     }
-
-    /**
-     * Schedules a piece of code (runnable) to be executed after a specified delay (in milliseconds).
-     * This method creates a new thread and uses it to run the provided Runnable after the specified delay.
-     * If an exception occurs during the delay or while running the Runnable, it will be printed to the standard error stream.
-     *
-     * @param runnable The code to be executed after the delay. This argument must implement the Runnable interface.
-     * @param delay    The delay in milliseconds before executing the code. This value must be non-negative.
-     * @throws IllegalArgumentException if the delay is negative.
-     */
-    public void setTimeout(Runnable runnable, int delay) {
-        new Thread(() -> {
-            try {
-                Thread.sleep(delay);
-                runnable.run();
-            } catch (Exception e) {
-                System.err.println(e);
-            }
-        }).start();
-    }
-
 }
