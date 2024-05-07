@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +20,8 @@ public class App extends Application {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/application.fxml")));
             Scene scene = new Scene(root);
+            Image logo = new Image(getClass().getResourceAsStream("/img/logo.jpg"));
+            stage.getIcons().add(logo);
             stage.setTitle("Dictionary Application");
             stage.setScene(scene);
             stage.setResizable(false);
