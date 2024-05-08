@@ -25,7 +25,8 @@ public class DictionaryController extends SceneSwitching implements Initializabl
     protected static DictionaryManagement dictionaryManagement = new DictionaryManagement();
 
     static {
-        dictionaryManagement.insertFromFile("src/main/resources/data/dictionary/WordList.txt");
+        // dictionaryManagement.insertFromFile("src/main/resources/data/dictionary/WordList.txt");
+        dictionaryManagement.insertFromFile_specialWord("src/main/resources/data/dictionary/dictionaries.txt");
         dictionary = dictionaryManagement.getDictionary();
     }
 

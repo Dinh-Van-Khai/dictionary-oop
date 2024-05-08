@@ -15,7 +15,7 @@ Final project - Group 6 - 2324II_INT2204_1 - UET
 * Nhóm 6 - Các thành viên: Phạm Văn Đức, Hoàng Trung Hiệp & Đinh Văn Khải K66k
 
 <p align="center">
-<img src="src\main\resources\img\README-image\dictionary-search.png">
+<img src="src\main\resources\img\README-image\dictionary.png">
 </p>
 
 # 2.    Tính năng nổi bật <a name="features"></a>
